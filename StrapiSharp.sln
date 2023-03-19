@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1705.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrapiSharp", "StrapiSharp\StrapiSharp.csproj", "{35D8F9F8-C064-406E-BB05-A5F24A8CCDD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrapiSharpTests", "StrapiSharpTests\StrapiSharpTests.csproj", "{F2FA9928-28E8-441B-8B38-AFBBAB06EAEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{35D8F9F8-C064-406E-BB05-A5F24A8CCDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35D8F9F8-C064-406E-BB05-A5F24A8CCDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35D8F9F8-C064-406E-BB05-A5F24A8CCDD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2FA9928-28E8-441B-8B38-AFBBAB06EAEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FA9928-28E8-441B-8B38-AFBBAB06EAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FA9928-28E8-441B-8B38-AFBBAB06EAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FA9928-28E8-441B-8B38-AFBBAB06EAEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
