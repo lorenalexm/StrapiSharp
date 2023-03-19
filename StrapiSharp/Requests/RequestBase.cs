@@ -196,7 +196,7 @@ public abstract class RequestBase
 	/// <param name="sort">Which direction should the <see cref="SortDirection"/> be in?</param>
 	public void Sort(string field, SortDirection sort)
 	{
-		var direction = (sort == SortDirection.Ascending) ? ":asc" : ":desc";
+		var direction = (sort == SortDirection.Ascending) ? "asc" : "desc";
 		SetFilter("sort", field, direction);
 	}
 }
