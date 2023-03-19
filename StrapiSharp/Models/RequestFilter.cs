@@ -1,9 +1,9 @@
 ﻿using StrapiSharp.Enums;
 
-namespace StrapiSharp.Requests;
+namespace StrapiSharp.Models;
 
 /// <summary>
-/// The structure for any filtering of requests.
+/// The model for any filtering of requests.
 /// </summary>
 public struct RequestFilter
 {

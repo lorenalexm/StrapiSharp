@@ -1,4 +1,5 @@
 ﻿using StrapiSharp.Enums;
+using StrapiSharp.Models;
 
 namespace StrapiSharp.Requests;
 
