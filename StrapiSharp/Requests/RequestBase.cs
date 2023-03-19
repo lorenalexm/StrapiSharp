@@ -46,10 +46,6 @@ public abstract class RequestBase
 	/// <param name="value">Value to filter against.</param>
 	private void SetFilter(string type, string field, string value)
 	{
-		if(CanSetFilters == false)
-		{
-			return;
-		}
 		RequestFilter filter = new RequestFilter { Type = type, Field = field, Value = value };
 		Filters.Add(filter);
 	}
@@ -83,7 +79,12 @@ public abstract class RequestBase
 	/// <param name="value">The value to filter against.</param>
 	public void Filter(FilterType type, string field, string value)
 	{
-		switch(type)
+		if (CanSetFilters == false)
+		{
+			return;
+		}
+
+		switch (type)
 		{
 			case FilterType.In:
 				SetFilter("$in", field, value);
