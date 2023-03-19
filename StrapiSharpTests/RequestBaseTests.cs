@@ -17,7 +17,7 @@ public class RequestBaseTests
 	/// Tests creating a basic request with no parameters.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithNoFilters()
+	public void RequestBaseWithNoFilters()
 	{
 		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
 		request.Method.Should().Be(RequestMethod.Get);
@@ -30,7 +30,7 @@ public class RequestBaseTests
 	/// Tests adding a single filter to a request.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithFilter()
+	public void RequestBaseWithFilter()
 	{
 		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
 		request.Method.Should().Be(RequestMethod.Get);
@@ -48,7 +48,7 @@ public class RequestBaseTests
 	/// Tests adding multiple filters to a request.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithFilters()
+	public void RequestBaseWithFilters()
 	{
 		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
 		request.Method.Should().Be(RequestMethod.Get);
@@ -78,7 +78,7 @@ public class RequestBaseTests
 	/// Tests that filters cannot be applied to a <see cref="RequestMethod"/> that is not <see cref="RequestMethod.Get"/>.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithInvalidFilter()
+	public void RequestBaseWithInvalidFilter()
 	{
 		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
 		request.Method.Should().Be(RequestMethod.Post);
@@ -93,7 +93,7 @@ public class RequestBaseTests
 	/// Tests that a request body can be set with a <see cref="RequestMethod.Post"/> request.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithPostBody()
+	public void RequestBaseWithPostBody()
 	{
 		var body = """
 			{ "data": "A random string or something." }
@@ -120,7 +120,7 @@ public class RequestBaseTests
 	/// Tests that a request body can be set with a <see cref="RequestMethod.Put"/> request.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithPutBody()
+	public void RequestBaseWithPutBody()
 	{
 		var body = """
 			{ "data": "A random string or something." }
@@ -139,7 +139,7 @@ public class RequestBaseTests
 	/// Tests that a request body cannot be set with a <see cref="RequestMethod.Get"/> request.
 	/// </summary>
 	[Test]
-	public void CreateRequestWithNoBody()
+	public void RequestBaseWithNoBody()
 	{
 		var body = """
 			{ "data": "A random string or something." }
