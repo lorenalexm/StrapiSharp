@@ -37,6 +37,27 @@ public abstract class RequestBase
 	}
 
 	/// <summary>
+	/// Mappings for <see cref="FilterType"/> values to their <see cref="string"/> counterparts.
+	/// </summary>
+	private static readonly Dictionary<FilterType, string> FilterTypeMappings = new Dictionary<FilterType, string>()
+	{
+		{ FilterType.In, "$in" },
+		{ FilterType.NotIn, "$notIn" },
+		{ FilterType.EqualTo, "$eq" },
+		{ FilterType.NotEqualTo, "$ne" },
+		{ FilterType.LessThan, "$lt" },
+		{ FilterType.LessThanOrEqualTo, "$lte" },
+		{ FilterType.GreaterThan, "$gt" },
+		{ FilterType.GreaterThanOrEqualTo, "$gte" },
+		{ FilterType.Contains, "$contains" },
+		{ FilterType.DoesNotContain, "$notContains" },
+		{ FilterType.StartsWith, "$startsWith" },
+		{ FilterType.EndsWith, "$endsWith" },
+		{ FilterType.IsNull, "$null" },
+		{ FilterType.IsNotNull, "$notNull" },
+	};
+
+	/// <summary>
 	/// Sets the properties for furture requests.
 	/// </summary>
 	/// <param name="method">The <see cref="RequestMethod"/> of this request.</param>
@@ -110,63 +131,9 @@ public abstract class RequestBase
 			return;
 		}
 
-		switch (type)
+		if(FilterTypeMappings.TryGetValue(type, out string? filter))
 		{
-			case FilterType.In:
-				SetFilter("$in", field, value);
-				break;
-
-			case FilterType.NotIn:
-				SetFilter("$notIn", field, value);
-				break;
-
-			case FilterType.EqualTo:
-				SetFilter("$eq", field, value);
-				break;
-
-			case FilterType.NotEqualTo:
-				SetFilter("$ne", field, value);
-				break;
-
-			case FilterType.LessThan:
-				SetFilter("$lt", field, value);
-				break;
-
-			case FilterType.LessThanOrEqualTo:
-				SetFilter("$lte", field, value);
-				break;
-
-			case FilterType.GreaterThan:
-				SetFilter("$gt", field, value);
-				break;
-
-			case FilterType.GreaterThanOrEqualTo:
-				SetFilter("$gte", field, value);
-				break;
-
-			case FilterType.Contains:
-				SetFilter("$contains", field, value);
-				break;
-
-			case FilterType.DoesNotContain:
-				SetFilter("$notContains", field, value);
-				break;
-
-			case FilterType.StartsWith:
-				SetFilter("$startsWith", field, value);
-				break;
-
-			case FilterType.EndsWith:
-				SetFilter("$endsWith", field, value);
-				break;
-
-			case FilterType.IsNull:
-				SetFilter("$null", field, value);
-				break;
-
-			case FilterType.IsNotNull:
-				SetFilter("$notNull", field, value);
-				break;
+			SetFilter(filter, field, value);
 		}
 	}
 
