@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StrapiSharp.Enums;
+﻿namespace StrapiSharp.Enums;
 
 /// <summary>
 /// When sorting a request, which direction should they be sorted?

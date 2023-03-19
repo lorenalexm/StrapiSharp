@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StrapiSharp.Enums;
+﻿namespace StrapiSharp.Enums;
 
 /// <summary>
 /// The types of requests that can be made.

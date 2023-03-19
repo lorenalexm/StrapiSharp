@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StrapiSharp.Enums;
+﻿namespace StrapiSharp.Enums;
 
 /// <summary>
 /// The filters available to all <see cref="RequestMethod.Get"/> requests.
