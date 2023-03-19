@@ -21,4 +21,10 @@
   <ItemGroup>
     <ProjectReference Include="..\StrapiSharp\StrapiSharp.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Requests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Requests\" />
+  </ItemGroup>
 </Project>

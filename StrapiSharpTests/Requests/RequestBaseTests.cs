@@ -1,4 +1,4 @@
-﻿namespace StrapiSharpTests;
+﻿namespace StrapiSharpTests.Requests;
 
 public class RequestBaseTests
 {
