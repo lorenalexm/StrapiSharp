@@ -181,6 +181,7 @@ public abstract class RequestBase
 
 	/// <summary>
 	/// Sets the limit for the number of returned items in a <see cref="RequestMethod.Get"/> request.
+	/// The maximum value for limits are set on the Strapi server, if you are running into issue with fewer results than expected check there.
 	/// </summary>
 	/// <param name="count">Value of the limit.</param>
 	public void LimitTo(int count)
