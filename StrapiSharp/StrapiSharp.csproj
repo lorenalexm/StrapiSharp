@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Requests\" />
     <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Requests\" />
     <Folder Include="Enums\" />
   </ItemGroup>
 </Project>
