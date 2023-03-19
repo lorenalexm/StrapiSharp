@@ -1,7 +1,4 @@
-﻿using StrapiSharp.Enums;
-using StrapiSharp.Requests;
-
-namespace StrapiSharpTests;
+﻿namespace StrapiSharpTests;
 
 public class RequestBaseTests
 {
