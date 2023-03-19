@@ -12,7 +12,7 @@ public abstract class RequestBase
 	public string ContentType { get; private set; }
 	public string Path { get; private set; }
 	public List<RequestFilter> Filters { get; private set; }
-	public string Body { get; private set; }
+	public string? Body { get; private set; }
 
 	/// <summary>
 	/// Checks if the request can accept one or more <see cref="RequestFilter"/>.
