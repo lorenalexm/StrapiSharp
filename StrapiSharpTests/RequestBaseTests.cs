@@ -91,4 +91,69 @@ public class RequestBaseTests
 		request.Filter(FilterType.EqualTo, "test", "testing");
 		request.Filters.Count.Should().Be(0);
 	}
+
+	/// <summary>
+	/// Tests that a request body can be set with a <see cref="RequestMethod.Post"/> request.
+	/// </summary>
+	[Test]
+	public void CreateRequestWithPostBody()
+	{
+		var body = """
+			{ "data": "A random string or something." }
+		""";
+
+		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
+		request.Method.Should().Be(RequestMethod.Post);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.SetBody(body);
+		request.Body.Should().Be(body);
+
+		request = new RequestBaseMock(RequestMethod.Put, "test", "");
+		request.Method.Should().Be(RequestMethod.Put);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.SetBody(body);
+		request.Body.Should().Be(body);
+	}
+
+	/// <summary>
+	/// Tests that a request body can be set with a <see cref="RequestMethod.Put"/> request.
+	/// </summary>
+	[Test]
+	public void CreateRequestWithPutBody()
+	{
+		var body = """
+			{ "data": "A random string or something." }
+		""";
+
+		var request = new RequestBaseMock(RequestMethod.Put, "test", "");
+		request.Method.Should().Be(RequestMethod.Put);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.SetBody(body);
+		request.Body.Should().Be(body);
+	}
+
+	/// <summary>
+	/// Tests that a request body cannot be set with a <see cref="RequestMethod.Get"/> request.
+	/// </summary>
+	[Test]
+	public void CreateRequestWithNoBody()
+	{
+		var body = """
+			{ "data": "A random string or something." }
+		""";
+
+		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		request.Method.Should().Be(RequestMethod.Get);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.SetBody(body);
+		request.Body.Should().Be(null);
+	}
 }

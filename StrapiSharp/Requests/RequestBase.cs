@@ -11,6 +11,7 @@ public abstract class RequestBase
 	public string ContentType { get; private set; }
 	public string Path { get; private set; }
 	public List<RequestFilter> Filters { get; private set; }
+	public string Body { get; private set; }
 
 	/// <summary>
 	/// Checks if the request can accept one or more <see cref="RequestFilter"/>.
@@ -24,18 +25,42 @@ public abstract class RequestBase
 	}
 
 	/// <summary>
+	/// Checks if the request supports sending a body string.
+	/// </summary>
+	public bool CanSetBody
+	{
+		get
+		{
+			return Method == RequestMethod.Post || Method == RequestMethod.Put;
+		}
+	}
+
+	/// <summary>
 	/// Sets the properties for furture requests.
 	/// </summary>
 	/// <param name="method">The <see cref="RequestMethod"/> of this request.</param>
 	/// <param name="contentType">The Strapi content type</param>
 	/// <param name="path">The path on the server that this request will be sent to.</param>
 	/// <param name="filters">Any content specific filters as a <see cref="string"/> array to be sent with the request.</param>
-	public RequestBase(RequestMethod method, string contentType, string path, List<RequestFilter>? filters = null)
+	public RequestBase(RequestMethod method, string contentType, string path = "", List<RequestFilter>? filters = null)
 	{
 		Method = method;
 		ContentType = contentType;
 		Path = path;
 		Filters = filters ?? new List<RequestFilter>();
+	}
+
+	/// <summary>
+	/// Sets the body for any <see cref="RequestMethod.Post"/> and <see cref="RequestMethod.Put"/> requests.
+	/// </summary>
+	/// <param name="body"></param>
+	public void SetBody(string body)
+	{
+		if(CanSetBody == false)
+		{
+			return;
+		}
+		Body = body;
 	}
 
 	/// <summary>
