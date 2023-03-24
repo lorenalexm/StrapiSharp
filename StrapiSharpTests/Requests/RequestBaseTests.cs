@@ -153,4 +153,37 @@ public class RequestBaseTests
 		request.SetBody(body);
 		request.Body.Should().Be(null);
 	}
+
+	/// <summary>
+	/// Tests that a request body can have relations populated.
+	/// </summary>
+	[Test]
+	public void RequestBaseWithPopulation()
+	{
+		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
+		request.Method.Should().Be(RequestMethod.Post);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.Populate("*");
+		request.Filters[0].Type.Should().Be("populate");
+		request.Filters[0].Field.Should().Be("*");
+	}
+
+	/// <summary>
+	/// Tests that a request body can be sorted by a field.
+	/// </summary>
+	[Test]
+	public void RequestBaseWithSorting()
+	{
+		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		request.Method.Should().Be(RequestMethod.Get);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.Sort("id", SortDirection.Descending);
+		request.Filters[0].Type.Should().Be("sort");
+		request.Filters[0].Field.Should().Be("id");
+		request.Filters[0].Value.Should().Be("desc");
+	}
 }

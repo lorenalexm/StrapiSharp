@@ -100,6 +100,18 @@ public class StrapiSharpTests
 	}
 
 	/// <summary>
+	/// Tests building a URI with population.
+	/// </summary>
+	[Test]
+	public void BuildURIWithPopulation()
+	{
+		var request = new QueryRequest("testing");
+		request.Populate("*");
+		var uri = _strapi!.BuildURI(request);
+		uri.Should().Be("http://localhost/testing?populate[0]=*");
+	}
+
+	/// <summary>
 	/// Tests building a URI with a starting offset and return limits.
 	/// </summary>
 	[Test]

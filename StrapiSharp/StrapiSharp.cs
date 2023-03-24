@@ -100,12 +100,18 @@ public class StrapiSharp
 		{
 			int inIndex = 0;
 			int notInIndex = 0;
+			int populateIndex = 0;
 
 			uri += "?";
 			foreach(var filter in request.Filters)
 			{
 				switch(filter.Type)
 				{
+					case "populate":
+						uri += $"populate[{populateIndex.ToString()}]={filter.Field}";
+						populateIndex++;
+						break;
+
 					case "sort":
 						uri += $"sort[0]={filter.Field}:{filter.Value}";
 						break;
