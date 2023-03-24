@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Text;
+using System.Net.Http.Headers;
 using StrapiSharp.Requests;
 using StrapiSharp.Enums;
 
@@ -71,7 +72,7 @@ public class StrapiSharp
 		var message = new HttpRequestMessage(new HttpMethod(request.Method.ToString()), BuildURI(request));
 		if(string.IsNullOrEmpty(request.Body) == false)
 		{
-			message.Content = new StringContent(request.Body);
+			message.Content = new StringContent(request.Body, Encoding.UTF8, "application/json");
 		}
 
 		var response = await _httpClient.SendAsync(message);
@@ -95,7 +96,7 @@ public class StrapiSharp
 	public async Task<string> LoginAsync(string identifier, string password)
 	{
 		var request = new CustomRequest(RequestMethod.Post, "auth", "/local");
-		request.SetBody($"{{ identifier: \"{identifier}\", password: \"{password}\" }}");
+		request.SetBody($"{{ identifier: '{identifier}', password: '{password}' }}");
 		return await ExecuteAsync(request);
 	}
 
@@ -109,7 +110,7 @@ public class StrapiSharp
 	public async Task<string> RegisterAsync(string username, string email, string password)
 	{
 		var request = new CustomRequest(RequestMethod.Post, "auth", "/local/register");
-		request.SetBody($"{{ username: \"{username}\", email: \"{email}\", password: \"{password}\" }}");
+		request.SetBody($"{{ username: '{username}', email: '{email}', password: '{password}' }}");
 		return await ExecuteAsync(request);
 	}
 
