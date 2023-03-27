@@ -21,6 +21,7 @@ public class Strapi
 {
 	private readonly HttpClient _httpClient;
 	public string Host { get; private set; }
+	public string AuthToken { get; set; } = "";
 
 	/// <summary>
 	/// Creates a new instance of <see cref="Strapi"/>.
@@ -73,6 +74,11 @@ public class Strapi
 		if (string.IsNullOrEmpty(request.Body) == false)
 		{
 			message.Content = new StringContent(request.Body, Encoding.UTF8, "application/json");
+		}
+
+		if (string.IsNullOrEmpty(AuthToken) == false)
+		{
+			message.Headers.Authorization = new AuthenticationHeaderValue("bearer", AuthToken);
 		}
 
 		var response = await _httpClient.SendAsync(message);
