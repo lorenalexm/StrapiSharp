@@ -1,10 +1,9 @@
-﻿using Strapi = StrapiSharp.StrapiSharp;
+﻿using StrapiSharp;
 
 namespace StrapiSharpTests;
 
-public class StrapiSharpTests
+public class StrapiTests
 {
-	//private Strapi? _strapi;
 	private Strapi? _strapi;
 
 	/// <summary>

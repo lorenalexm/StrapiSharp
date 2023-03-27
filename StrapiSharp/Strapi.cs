@@ -17,17 +17,17 @@ public class StrapiRequestException: Exception
 	public StrapiRequestException(string message) : base(message) { }
 }
 
-public class StrapiSharp
+public class Strapi
 {
 	private readonly HttpClient _httpClient;
 	public string Host { get; private set; }
 
 	/// <summary>
-	/// Creates a new instance of <see cref="StrapiSharp"/>.
+	/// Creates a new instance of <see cref="Strapi"/>.
 	/// </summary>
 	/// <param name="client">The <see cref="HttpClient"/> that will be used for requests.</param>
 	/// <param name="host">The Strapi server base url where requests will be sent.</param>
-	public StrapiSharp(HttpClient client, string host)
+	public Strapi(HttpClient client, string host)
 	{
 		_httpClient = client;
 		SetDefaultRequestHeaders();
@@ -35,11 +35,11 @@ public class StrapiSharp
 	}
 
 	/// <summary>
-	/// Creates a new instance of <see cref="StrapiSharp"/>.
+	/// Creates a new instance of <see cref="Strapi"/>.
 	/// Creates a new <see cref="HttpClient"/> to be used.
 	/// </summary>
 	/// <param name="host">The Strapi server base url where requests will be sent.</param>
-	public StrapiSharp(string host)
+	public Strapi(string host)
 	{
 		_httpClient = new HttpClient();
 		SetDefaultRequestHeaders();
@@ -70,13 +70,13 @@ public class StrapiSharp
 	public async Task<string> ExecuteAsync(RequestBase request)
 	{
 		var message = new HttpRequestMessage(new HttpMethod(request.Method.ToString()), BuildURI(request));
-		if(string.IsNullOrEmpty(request.Body) == false)
+		if (string.IsNullOrEmpty(request.Body) == false)
 		{
 			message.Content = new StringContent(request.Body, Encoding.UTF8, "application/json");
 		}
 
 		var response = await _httpClient.SendAsync(message);
-		if(response.IsSuccessStatusCode)
+		if (response.IsSuccessStatusCode)
 		{
 			return await response.Content.ReadAsStringAsync();
 		}
