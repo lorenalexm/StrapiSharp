@@ -17,7 +17,7 @@ At this time there is no formal documentation. I have tried to provide fairly de
 
 ## Usage/Examples
 
-No Nuget package has yet been built or published, so you will need to build yourself and reference the library within your own project.
+Add the `StrapiSharp` package to your project by means of `dotnet add package StrapiSharp`, this will pull from [NuGet](https://www.nuget.org).
 
 Basic example of querying a `posts` resource from Strapi.
 ```cs
