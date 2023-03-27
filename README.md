@@ -30,6 +30,36 @@ var result = await strapi.ExecuteAsync(request);
 Console.WriteLine(result);
 ```
 
+Example of querying and filtering a `posts` example resource from Strapi.
+```cs
+using StrapiSharp;
+using StrapiSharp.Enums;
+using StrapiSharp.Requests;
+
+var strapi = new Strapi("http://localhost:1337/api");
+var request = new QueryRequest("posts");
+request.Filter(FilterType.EqualTo, "id", "42");
+
+var result = await strapi.ExecuteAsync(request);
+Console.WriteLine(result);
+```
+
+Example of querying, filtering, and sorting a `posts` example resource from Strapi.
+```cs
+using StrapiSharp;
+using StrapiSharp.Enums;
+using StrapiSharp.Requests;
+
+var strapi = new Strapi("http://localhost:1337/api");
+var request = new QueryRequest("posts");
+request.Filter(FilterType.GreaterThan, "id", "2");
+request.Sort("slug", SortDirection.Descending);
+request.LimitTo(3);
+
+var result = await strapi.ExecuteAsync(request);
+Console.WriteLine(result);
+```
+
 Example of catching a `StrapiRequestException` and extracting data from within.
 ```cs
 using System.Text.Json;
