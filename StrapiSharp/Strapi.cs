@@ -29,7 +29,15 @@ public class StrapiRequestException: Exception
 public class Strapi
 {
 	private readonly HttpClient _httpClient;
+
+	/// <summary>
+	/// The Strapi host to make requests against.
+	/// </summary>
 	public string Host { get; private set; }
+
+	/// <summary>
+	/// An authentication token that will be sent with each request, if set.
+	/// </summary>
 	public string AuthToken { get; set; } = "";
 
 	/// <summary>
