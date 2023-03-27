@@ -88,33 +88,6 @@ public class StrapiSharp
 	}
 
 	/// <summary>
-	/// Attempts to log in a user with Strapi local authentication.
-	/// </summary>
-	/// <param name="identifier">The identifier used for a user object.</param>
-	/// <param name="password">The password for the user.</param>
-	/// <returns>A JSON <see cref="string"/> from the attempted login.</returns>
-	public async Task<string> LoginAsync(string identifier, string password)
-	{
-		var request = new CustomRequest(RequestMethod.Post, "auth", "/local");
-		request.SetBody($"{{ identifier: '{identifier}', password: '{password}' }}");
-		return await ExecuteAsync(request);
-	}
-
-	/// <summary>
-	/// Attempts to register a new user with Strapi local authentication.
-	/// </summary>
-	/// <param name="username">The requested username for the user.</param>
-	/// <param name="email">The email to be associated with this user.</param>
-	/// <param name="password">The password for the account to be created</param>
-	/// <returns>A JSON <see cref="string"/> from the registration attempt.</returns>
-	public async Task<string> RegisterAsync(string username, string email, string password)
-	{
-		var request = new CustomRequest(RequestMethod.Post, "auth", "/local/register");
-		request.SetBody($"{{ username: '{username}', email: '{email}', password: '{password}' }}");
-		return await ExecuteAsync(request);
-	}
-
-	/// <summary>
 	/// Builds a URI string for a <see cref="RequestBase"/> inherited request from its properties.
 	/// </summary>
 	/// <param name="request">The <see cref="RequestBase"/> whos properties will be pulled</param>
