@@ -11,10 +11,19 @@ namespace StrapiSharp;
 public class StrapiRequestException: Exception
 {
 	/// <summary>
+	/// A JSON <see cref="string"/> returned from Strapi containing the error.
+	/// </summary>
+	public string Response { get; set; }
+
+	/// <summary>
 	/// Thrown when host responds with an error.
 	/// </summary>
 	/// <param name="message">Message to be thrown with the exception.</param>
-	public StrapiRequestException(string message) : base(message) { }
+	/// <param name="response">The JSON <see cref="string"/> returned from the server containing the error.</param>
+	public StrapiRequestException(string message, string response) : base(message)
+	{
+		Response = response;
+	}
 }
 
 public class Strapi
@@ -89,7 +98,7 @@ public class Strapi
 		else
 		{
 			var error = await response.Content.ReadAsStringAsync();
-			throw new StrapiRequestException($"Failed to get success response from host! Host returned an error:\n{error}");
+			throw new StrapiRequestException($"Failed to get success response from host! Host returned an error.", error);
 		}
 	}
 
