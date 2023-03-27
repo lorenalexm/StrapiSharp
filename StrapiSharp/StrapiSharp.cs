@@ -83,7 +83,7 @@ public class StrapiSharp
 		else
 		{
 			var error = await response.Content.ReadAsStringAsync();
-			throw new StrapiRequestException($"Failed to get success response from host! Host returned an error of {error}");
+			throw new StrapiRequestException($"Failed to get success response from host! Host returned an error:\n{error}");
 		}
 	}
 
