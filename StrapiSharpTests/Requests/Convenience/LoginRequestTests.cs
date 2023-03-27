@@ -11,6 +11,7 @@ public class LoginRequestTests
 		var request = new LoginRequest("username", "password");
 		request.Method.Should().Be(RequestMethod.Post);
 		request.ContentType.Should().Be("auth");
+		request.Path.Should().Be("/local");
 		request.Body.Should().Be("{ \"identifier\": \"username\", \"password\": \"password\" }");
 	}
 }
