@@ -55,7 +55,7 @@ public class StrapiTests
 	{
 		var request = new QueryRequest("testing");
 		request.Filter(FilterType.LessThan, "number", "500");
-		request.Filter(FilterType.IsNotNull, "name", "");
+		request.Filter(FilterType.IsNotNull, "name", string.Empty);
 		var uri = _strapi!.BuildURI(request);
 		uri.Should().Be("http://localhost/testing?filters[number][$lt]=500&filters[name][$notNull]");
 	}

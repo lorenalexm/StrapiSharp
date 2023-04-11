@@ -19,10 +19,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithNoFilters()
 	{
-		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Get, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Get);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 		request.Filters.Count.Should().Be(0);
 	}
 
@@ -32,10 +32,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithFilter()
 	{
-		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Get, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Get);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.Filter(FilterType.EqualTo, "test", "testing");
 		request.Filters.Count.Should().Be(1);
@@ -50,10 +50,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithFilters()
 	{
-		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Get, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Get);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.Filter(FilterType.EqualTo, "test", "testing");
 		request.Filters.Count.Should().Be(1);
@@ -80,10 +80,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithInvalidFilter()
 	{
-		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Post, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Post);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.Filter(FilterType.EqualTo, "test", "testing");
 		request.Filters.Count.Should().Be(0);
@@ -99,18 +99,18 @@ public class RequestBaseTests
 			{ "data": "A random string or something." }
 		""";
 
-		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Post, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Post);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.SetBody(body);
 		request.Body.Should().Be(body);
 
-		request = new RequestBaseMock(RequestMethod.Put, "test", "");
+		request = new RequestBaseMock(RequestMethod.Put, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Put);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.SetBody(body);
 		request.Body.Should().Be(body);
@@ -126,10 +126,10 @@ public class RequestBaseTests
 			{ "data": "A random string or something." }
 		""";
 
-		var request = new RequestBaseMock(RequestMethod.Put, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Put, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Put);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.SetBody(body);
 		request.Body.Should().Be(body);
@@ -145,10 +145,10 @@ public class RequestBaseTests
 			{ "data": "A random string or something." }
 		""";
 
-		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Get, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Get);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.SetBody(body);
 		request.Body.Should().Be(null);
@@ -160,10 +160,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithPopulation()
 	{
-		var request = new RequestBaseMock(RequestMethod.Post, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Post, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Post);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.Populate("*");
 		request.Filters[0].Type.Should().Be("populate");
@@ -176,10 +176,10 @@ public class RequestBaseTests
 	[Test]
 	public void RequestBaseWithSorting()
 	{
-		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		var request = new RequestBaseMock(RequestMethod.Get, "test", string.Empty);
 		request.Method.Should().Be(RequestMethod.Get);
 		request.ContentType.Should().Be("test");
-		request.Path.Should().Be("");
+		request.Path.Should().Be(string.Empty);
 
 		request.Sort("id", SortDirection.Descending);
 		request.Filters[0].Type.Should().Be("sort");

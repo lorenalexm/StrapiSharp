@@ -38,7 +38,7 @@ public class Strapi
 	/// <summary>
 	/// An authentication token that will be sent with each request, if set.
 	/// </summary>
-	public string AuthToken { get; set; } = "";
+	public string AuthToken { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Creates a new instance of <see cref="Strapi"/>.
@@ -118,9 +118,9 @@ public class Strapi
 	public string BuildURI(RequestBase request)
 	{
 		var uri = Host;
-		uri += (uri.EndsWith("/") == false) ? "/" : "";
+		uri += (uri.EndsWith("/") == false) ? "/" : string.Empty;
 		uri += request.ContentType;
-		uri += (string.IsNullOrEmpty(request.Path) == false) ? $"{request.Path}" : "";
+		uri += (string.IsNullOrEmpty(request.Path) == false) ? $"{request.Path}" : string.Empty;
 		if(request.Filters.Count > 0)
 		{
 			int inIndex = 0;

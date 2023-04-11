@@ -24,7 +24,7 @@ public class QueryRequest : RequestBase
 	/// <param name="contentType">The Strapi type of this request.</param>
 	/// <param name="filters">Any preconstructed filters for the request.</param>
 	public QueryRequest(string contentType, List<RequestFilter> filters)
-		: base(RequestMethod.Get, contentType, "", filters)
+		: base(RequestMethod.Get, contentType, string.Empty, filters)
 	{
 	}
 }

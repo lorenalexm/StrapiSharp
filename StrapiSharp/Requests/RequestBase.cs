@@ -173,6 +173,6 @@ public abstract class RequestBase
 	/// <param name="relation">The name of the content-type to populate. Can use a * wildcard for all relations.</param>
 	public void Populate(string relation)
 	{
-		SetFilter("populate", relation, "");
+		SetFilter("populate", relation, string.Empty);
 	}
 }
