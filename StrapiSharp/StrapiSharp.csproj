@@ -10,6 +10,9 @@
     <PackageTags>Strapi;REST;API</PackageTags>
     <Description>StrapiSharp is a lightweight C# library for easy integration with Strapi CMS, allowing seamless communication with Strapi's RESTful API.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/lorenalexm/StrapiSharp</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/lorenalexm/StrapiSharp</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
