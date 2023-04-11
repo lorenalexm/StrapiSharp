@@ -141,6 +141,10 @@ public class Strapi
 						uri += $"sort[0]={filter.Field}:{filter.Value}";
 						break;
 
+					case "randomSort":
+						uri += $"randomSort={filter.Value}";
+						break;
+
 					case "pagination":
 						uri += $"pagination[{filter.Field}]={filter.Value}";
 						break;

@@ -111,6 +111,18 @@ public class StrapiTests
 	}
 
 	/// <summary>
+	/// Tests building a URI with randomization.
+	/// </summary>
+	[Test]
+	public void BuildURIWithRandomization()
+	{
+		var request = new QueryRequest("testing");
+		request.Randomize();
+		var uri = _strapi!.BuildURI(request);
+		uri.Should().Be("http://localhost/testing?randomSort=true");
+	}
+
+	/// <summary>
 	/// Tests building a URI with a starting offset and return limits.
 	/// </summary>
 	[Test]

@@ -168,6 +168,15 @@ public abstract class RequestBase
 	}
 
 	/// <summary>
+	/// Randomly sorts the results returned from a <see cref="RequestMethod.Get"/> request.
+	/// NOTE: This feature requires the installation of the 'strapi-plugin-random-sort' plugin on the server side.
+	/// </summary>
+	public void Randomize()
+	{
+		SetFilter("randomSort", string.Empty, "true");
+	}
+
+	/// <summary>
 	/// Populates the content-type relation of a given request.
 	/// </summary>
 	/// <param name="relation">The name of the content-type to populate. Can use a * wildcard for all relations.</param>
