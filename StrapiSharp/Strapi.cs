@@ -38,6 +38,7 @@ public class Strapi
 	/// <summary>
 	/// An authentication token that will be sent with each request, if set.
 	/// </summary>
+	[Obsolete("Please instead pass the auth token with each request. This no longer functions!")]
 	public string AuthToken { get; set; } = string.Empty;
 
 	/// <summary>
@@ -87,15 +88,33 @@ public class Strapi
 	/// <exception cref="StrapiRequestException">Thrown if the host returns an error.</exception>
 	public async Task<string> ExecuteAsync(RequestBase request)
 	{
+		return await ExecuteAsync(request, "");
+	}
+
+	/// <summary>
+	/// Sends an async <see cref="RequestBase"/> derived request to the <see cref="Host"/>.
+	/// <example>
+	/// For example:
+	/// <code>
+	/// var response = await ExecuteAsync(new FetchRequest("users", 1));
+	/// </code>
+	/// </example>
+	/// </summary>
+	/// <param name="request">Any request type inheriting from <see cref="RequestBase"/>.</param>
+	/// <param name="authToken">An authentication token that will be sent with each request.</param>
+	/// <returns>A JSON <see cref="string"/> from the host of the <see cref="RequestBase"/> content type.</returns>
+	/// <exception cref="StrapiRequestException">Thrown if the host returns an error.</exception>
+	public async Task<string> ExecuteAsync(RequestBase request, string authToken)
+	{
 		var message = new HttpRequestMessage(new HttpMethod(request.Method.ToString()), BuildURI(request));
 		if (string.IsNullOrEmpty(request.Body) == false)
 		{
 			message.Content = new StringContent(request.Body, Encoding.UTF8, "application/json");
 		}
 
-		if (string.IsNullOrEmpty(AuthToken) == false)
+		if (string.IsNullOrEmpty(authToken) == false)
 		{
-			message.Headers.Authorization = new AuthenticationHeaderValue("bearer", AuthToken);
+			message.Headers.Authorization = new AuthenticationHeaderValue("bearer", authToken);
 		}
 
 		var response = await _httpClient.SendAsync(message);
