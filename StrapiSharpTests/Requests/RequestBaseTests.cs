@@ -186,4 +186,20 @@ public class RequestBaseTests
 		request.Filters[0].Field.Should().Be("id");
 		request.Filters[0].Value.Should().Be("desc");
 	}
+
+	/// <summary>
+	/// Tests that a request body can be randomized.
+	/// </summary>
+	[Test]
+	public void RequestBaseWithRandomize()
+	{
+		var request = new RequestBaseMock(RequestMethod.Get, "test", "");
+		request.Method.Should().Be(RequestMethod.Get);
+		request.ContentType.Should().Be("test");
+		request.Path.Should().Be("");
+
+		request.Randomize();
+		request.Filters[0].Type.Should().Be("randomSort");
+		request.Filters[0].Value.Should().Be("true");
+	}
 }
