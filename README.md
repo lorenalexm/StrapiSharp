@@ -1,4 +1,5 @@
 [![Build Status](https://github.com/lorenalexm/StrapiSharp/actions/workflows/testing.yml/badge.svg)](https://github.com/lorenalexm/StrapiSharp/actions/workflows/testing.yml/badge.svg)
+![Nuget](https://img.shields.io/nuget/dt/StrapiSharp)
 
 # StrapiSharp
 
