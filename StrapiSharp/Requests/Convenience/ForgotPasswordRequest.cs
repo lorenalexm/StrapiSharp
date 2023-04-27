@@ -2,7 +2,7 @@
 using StrapiSharp.Models;
 using StrapiSharp.Requests;
 
-namespace StrapiSharpTests.Requests.Convenience;
+namespace StrapiSharp.Requests.Convenience;
 
 /// <summary>
 /// Convenience request type used for starting forgotten password flow.

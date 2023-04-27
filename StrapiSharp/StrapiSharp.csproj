@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>StrapiSharp</PackageId>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <Authors>Alex Loren</Authors>
     <PackageTags>Strapi;REST;API</PackageTags>
     <Description>StrapiSharp is a lightweight C# library for easy integration with Strapi CMS, allowing seamless communication with Strapi's RESTful API.</Description>

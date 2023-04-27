@@ -1,4 +1,4 @@
-﻿namespace StrapiSharpTests.Requests.Convenience;
+﻿namespace StrapiSharp.Requests.Convenience;
 
 class ForgotPasswordRequestTests
 {
