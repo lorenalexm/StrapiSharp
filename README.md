@@ -20,6 +20,15 @@ At this time there is no formal documentation. I have tried to provide fairly de
 
 Add the `StrapiSharp` package to your project by means of `dotnet add package StrapiSharp`, this will pull from [NuGet](https://www.nuget.org).
 
+If desired, `StrapiSharp` can be registered with the dependency injection service builder. You can do that like so.
+
+```cs
+using StrapiSharp.Extensions;
+
+// Below builder code already in place.
+builder.Services.AddStrapiSharp("http://localhost:1337/api");
+```
+
 Basic example of querying a `posts` resource from Strapi.
 ```cs
 using StrapiSharp;
