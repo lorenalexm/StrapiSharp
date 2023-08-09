@@ -1,6 +1,6 @@
 [![Build Status](https://github.com/lorenalexm/StrapiSharp/actions/workflows/testing.yml/badge.svg)](https://github.com/lorenalexm/StrapiSharp/actions/workflows/testing.yml/badge.svg)
 ![Nuget](https://img.shields.io/nuget/dt/StrapiSharp)
-<a href="https://www.buymeacoffee.com/lorenalexm" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="21" width="87"></a>
+[![Buy Me A Coffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/lorenalexm)
 
 # StrapiSharp
 
